@@ -1,13 +1,15 @@
 {
   flake.nixosModules.vintagestory-server =
     {
-      pkgs,
+      system,
       lib,
+      inputs,
       config,
       ...
     }:
     let
       cfg = config.services.vintagestory-server;
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
     in
     {
       options.services.vintagestory-server = {

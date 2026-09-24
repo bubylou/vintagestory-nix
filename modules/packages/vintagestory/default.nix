@@ -1,6 +1,7 @@
 {
   systems = [ "x86_64-linux" ];
-  perSystem = { pkgs, ... }: {
+  perSystem = { pkgs, config, ... }: {
+    checks.vintagestory = config.packages.vintagestory;
     packages.vintagestory = pkgs.callPackage (
       {
         x11Support ? true,
